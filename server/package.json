@@ -1,0 +1,8 @@
+{
+  "name": "adda",
+  "version": "0.1.0",
+  "description": "Adda - your hangout place",
+  "main": "src/index.js",
+  "author": "ayushbasak <ayushbasak0210@gmail.com>",
+  "license": "MIT"
+}
