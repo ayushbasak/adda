@@ -7,12 +7,12 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Post()
-  async create(@Body() usersDTO: UsersDTO) {
-    this.usersService.create(usersDTO);
+  async createUser(@Body() usersDTO: UsersDTO) {
+    this.usersService.createUser(usersDTO);
   }
 
   @Get()
-  findAll(@Req() req): Users[] {
-    return this.usersService.findAll();
+  findUsers(@Req() req): Promise<Users[]> {
+    return this.usersService.getUsers();
   }
 }

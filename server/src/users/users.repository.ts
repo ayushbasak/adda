@@ -2,14 +2,15 @@ import { Repository } from 'typeorm';
 import { Users } from './users.entity';
 import UsersDTO from './dto/users.dto';
 
-// @EntityRepository('UsersRepository')
 export class UsersRepository extends Repository<Users> {
-  async getUsers(usersDTO: UsersDTO): Promise<Users[]> {
-    return this.find({
-      where: {
-        id: usersDTO.id,
-        username: usersDTO.username,
-      },
-    });
+  async createUser(usersDTO: UsersDTO): Promise<Users> {
+    const user = new Users();
+    user.id = usersDTO.id;
+    user.username = usersDTO.username;
+    return await this.save(user);
+  }
+
+  async getUsers(): Promise<Users[]> {
+    return this.find();
   }
 }
