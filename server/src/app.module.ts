@@ -16,6 +16,7 @@ import { UsersModule } from './users/users.module';
       username: 'postgres',
       password: '*Ayush0210*5776',
       database: 'postgres',
+      entities: [__dirname + '/../**/*.entity.js'],
       synchronize: true,
     }),
     UsersModule,

@@ -3,20 +3,20 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import usersDTO from './dto/users.dto';
 import { Users } from './users.entity';
-import { UsersRepository } from './users.repository';
+// import { UsersRepository } from './users.repository';
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(UsersRepository)
-    private usersRepository: UsersRepository,
+    @InjectRepository(Users)
+    private usersRepository: Repository<Users>,
   ) {}
   createUser(userDTO: usersDTO) {
-    this.usersRepository.createUser(userDTO);
+    this.usersRepository.insert(userDTO);
   }
 
   getUsers(): Promise<Users[]> {
     console.log(this.usersRepository);
-    return this.usersRepository.getUsers();
+    return this.usersRepository.find();
   }
 }
