@@ -6,6 +6,12 @@ import { AppService } from './app.service';
 import { UsersController } from './users/users.controller';
 import { UsersService } from './users/users.service';
 import { UsersModule } from './users/users.module';
+import { GroupsController } from './groups/groups.controller';
+import { GroupsModule } from './groups/groups.module';
+import { PostsModule } from './posts/posts.module';
+import { UpvotesModule } from './upvotes/upvotes.module';
+import { DownvotesModule } from './downvotes/downvotes.module';
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
   imports: [
@@ -20,6 +26,11 @@ import { UsersModule } from './users/users.module';
       synchronize: true,
     }),
     UsersModule,
+    GroupsModule,
+    PostsModule,
+    UpvotesModule,
+    DownvotesModule,
+    CommentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

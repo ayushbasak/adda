@@ -7,4 +7,13 @@ export class Users extends BaseEntity {
 
   @Column()
   username: string;
+
+  @Column()
+  hash: string;
+
+  @Column()
+  avatar_link: string;
+
+  @Column()
+  ijjat: number;
 }
