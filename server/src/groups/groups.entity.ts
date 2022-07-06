@@ -1,4 +1,5 @@
 import { Posts } from 'src/posts/posts.entity';
+import { Users } from 'src/users/users.entity';
 import { BaseEntity, Entity, PrimaryColumn, Column, OneToMany } from 'typeorm';
 @Entity('groups')
 export class Groups extends BaseEntity {
@@ -11,9 +12,14 @@ export class Groups extends BaseEntity {
   @Column()
   description: string;
 
-  //TODO Posts, admin, subscribed users
+  @Column()
+  admin: Users;
+
   @OneToMany(() => Posts, (post) => post.group)
   posts: Posts[];
+
+  @OneToMany(() => Users, (user) => user.groups)
+  users: Users[];
 
   @Column()
   subscriber_count: number;
