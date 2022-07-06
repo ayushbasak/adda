@@ -1,4 +1,5 @@
-import { BaseEntity, Entity, Column, PrimaryColumn } from 'typeorm';
+import { Posts } from 'src/posts/posts.entity';
+import { BaseEntity, Entity, Column, PrimaryColumn, OneToMany } from 'typeorm';
 
 @Entity('users')
 export class Users extends BaseEntity {
@@ -16,4 +17,7 @@ export class Users extends BaseEntity {
 
   @Column()
   ijjat: number;
+
+  @OneToMany(() => Posts, (post) => post.user)
+  posts: Posts[];
 }
