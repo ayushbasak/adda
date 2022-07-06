@@ -1,5 +1,5 @@
 export default class usersDTO {
-  readonly id: string;
+  id: string;
   readonly username: string;
   readonly hash: string;
   readonly avatar_link: string;
